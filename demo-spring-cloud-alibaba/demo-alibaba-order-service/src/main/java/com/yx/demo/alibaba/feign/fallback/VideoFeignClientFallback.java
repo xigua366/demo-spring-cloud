@@ -1,6 +1,5 @@
 package com.yx.demo.alibaba.feign.fallback;
 
-import com.yx.demo.alibaba.domain.Video;
 import com.yx.demo.alibaba.feign.VideoFeignClient;
 import org.springframework.stereotype.Service;
 

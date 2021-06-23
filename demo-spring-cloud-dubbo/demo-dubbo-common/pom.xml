@@ -25,12 +25,12 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!--guava依赖包-->
 		<dependency>
-			<groupId>com.aliyun.oss</groupId>
-			<artifactId>aliyun-sdk-oss</artifactId>
-			<version>3.10.2</version>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.16</version>
 		</dependency>
+
 	</dependencies>
 
 </project>

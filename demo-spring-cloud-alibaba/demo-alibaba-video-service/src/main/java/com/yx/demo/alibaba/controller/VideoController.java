@@ -1,6 +1,5 @@
 package com.yx.demo.alibaba.controller;
 
-import com.yx.demo.alibaba.domain.Video;
 import com.yx.demo.alibaba.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

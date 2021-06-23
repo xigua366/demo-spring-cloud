@@ -1,6 +1,5 @@
 package com.yx.demo.alibaba.feign;
 
-import com.yx.demo.alibaba.domain.Video;
 import com.yx.demo.alibaba.feign.fallback.VideoFeignClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

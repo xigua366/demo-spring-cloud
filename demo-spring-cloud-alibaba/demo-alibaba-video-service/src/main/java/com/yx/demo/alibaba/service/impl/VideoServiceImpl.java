@@ -1,7 +1,6 @@
 package com.yx.demo.alibaba.service.impl;
 
 import com.yx.demo.alibaba.dao.VideoMapper;
-import com.yx.demo.alibaba.domain.Video;
 import com.yx.demo.alibaba.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
