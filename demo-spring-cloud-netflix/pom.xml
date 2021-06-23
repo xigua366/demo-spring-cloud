@@ -44,20 +44,6 @@
 			</dependency>
 
 			<dependency>
-				<groupId>com.alibaba.cloud</groupId>
-				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
-				<version>2.2.5.RELEASE</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>com.alibaba.csp</groupId>
-				<artifactId>sentinel-datasource-nacos</artifactId>
-				<version>1.8.0</version>
-			</dependency>
-
-			<dependency>
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-boot-starter</artifactId>
 				<version>3.4.1</version>
