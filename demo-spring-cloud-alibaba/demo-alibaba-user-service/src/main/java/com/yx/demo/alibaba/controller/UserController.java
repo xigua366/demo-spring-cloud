@@ -1,7 +1,7 @@
 package com.yx.demo.alibaba.controller;
 
-import com.yx.demo.alibaba.domain.UserDO;
-import com.yx.demo.alibaba.request.UserRequest;
+import com.yx.demo.alibaba.domain.entity.UserDO;
+import com.yx.demo.alibaba.domain.request.UserRequest;
 import com.yx.demo.alibaba.service.UserService;
 import com.yx.demo.alibaba.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;

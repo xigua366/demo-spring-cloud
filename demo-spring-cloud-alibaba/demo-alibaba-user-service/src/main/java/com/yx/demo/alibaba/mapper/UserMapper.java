@@ -1,7 +1,7 @@
 package com.yx.demo.alibaba.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yx.demo.alibaba.domain.UserDO;
+import com.yx.demo.alibaba.domain.entity.UserDO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

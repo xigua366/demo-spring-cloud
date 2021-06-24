@@ -19,7 +19,7 @@ import java.util.Map;
  * @author yangxi
  */
 @Component
-public class MyBlockExceptionHandler implements BlockExceptionHandler {
+public class SentinelBlockExceptionHandler implements BlockExceptionHandler {
 
     @Override
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, BlockException e) throws Exception {

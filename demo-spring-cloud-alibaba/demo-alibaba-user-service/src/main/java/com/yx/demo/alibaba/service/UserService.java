@@ -1,7 +1,7 @@
 package com.yx.demo.alibaba.service;
 
-import com.yx.demo.alibaba.domain.UserDO;
-import com.yx.demo.alibaba.request.UserRequest;
+import com.yx.demo.alibaba.domain.entity.UserDO;
+import com.yx.demo.alibaba.domain.request.UserRequest;
 
 /**
  * <p>

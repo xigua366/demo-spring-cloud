@@ -1,4 +1,4 @@
-package com.yx.demo.alibaba.request;
+package com.yx.demo.alibaba.domain.request;
 
 import lombok.Data;
 

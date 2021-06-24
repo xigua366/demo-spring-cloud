@@ -10,7 +10,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.yx.demo.alibaba.domain
+  type-aliases-package: com.yx.demo.alibaba.domain.entity
 
 # 默认关闭限流与熔断，有需要的时候再用
 feign:

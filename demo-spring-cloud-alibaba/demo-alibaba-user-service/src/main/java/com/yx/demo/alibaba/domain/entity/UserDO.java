@@ -1,4 +1,4 @@
-package com.yx.demo.alibaba.domain;
+package com.yx.demo.alibaba.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

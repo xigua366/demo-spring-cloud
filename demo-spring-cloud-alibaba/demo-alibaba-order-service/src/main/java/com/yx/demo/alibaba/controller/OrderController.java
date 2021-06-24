@@ -1,14 +1,20 @@
 package com.yx.demo.alibaba.controller;
 
+import com.yx.demo.alibaba.domain.dto.OrderDTO;
+import com.yx.demo.alibaba.domain.dto.VideoDTO;
+import com.yx.demo.alibaba.domain.request.CreateOrderRequest;
 import com.yx.demo.alibaba.feign.VideoFeignClient;
+import com.yx.demo.alibaba.service.OrderService;
+import com.yx.demo.alibaba.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,14 +36,20 @@ public class OrderController {
     @Autowired
     private VideoFeignClient videoFeignClient;
 
-
-
     @Value("${video.title}")
     private String videoTitle;
 
+    @Autowired
+    private OrderService orderService;
 
-    @RequestMapping("save")
-    public Object save(int videoId){
+
+    /**
+     * 购买视频，新增一个订单
+     * @param createOrderRequest
+     * @return
+     */
+    @PostMapping("/crateOrder")
+    public JsonData crateOrder(@RequestBody CreateOrderRequest createOrderRequest) {
 
         //Video video = restTemplate.getForObject("http://localhost:9000/api/v1/video/find_by_id?videoId="+videoId, Video.class);
 
@@ -47,15 +59,21 @@ public class OrderController {
 
         //Video video = restTemplate.getForObject("http://demo-alibaba-video-service/api/v1/video/find_by_id?videoId="+videoId, Video.class);
 
-        Video video = videoFeignClient.findById(videoId);
+        Long videoId = createOrderRequest.getVideoId();
 
-        VideoOrder videoOrder = new VideoOrder();
-        videoOrder.setVideoId(video.getId());
-        videoOrder.setCreateTime(new Date());
-        videoOrder.setVideoTitle(videoTitle);
+        VideoDTO videoDTO = videoFeignClient.findById(videoId);
 
-        videoOrder.setServerInfo(video.getServeInfo());
-        return videoOrder;
+//        OrderVO orderVO = new OrderVO();
+//        orderVO.setVideoId(videoDTO.getId());
+//        orderVO.setCreateTime(new Date());
+//        orderVO.setVideoTitle(videoTitle);
+//        orderVO.setUserId(createOrderRequest.getUserId());
+//        orderVO.setServerInfo(videoDTO.getServerInfo());
+
+        OrderDTO orderDTO = orderService.createOrder(createOrderRequest, videoDTO);
+        orderDTO.setServerInfo(videoDTO.getServerInfo());
+
+        return JsonData.buildSuccess(orderDTO);
 
     }
 

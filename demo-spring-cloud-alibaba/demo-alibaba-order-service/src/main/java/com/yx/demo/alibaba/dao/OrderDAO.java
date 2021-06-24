@@ -1,7 +1,7 @@
 package com.yx.demo.alibaba.dao;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yx.demo.alibaba.domain.entity.UserDO;
+import com.yx.demo.alibaba.domain.entity.OrderDO;
 
 /**
  * <p>
@@ -11,6 +11,5 @@ import com.yx.demo.alibaba.domain.entity.UserDO;
  * @author yangxi
  * @version 1.0
  */
-public interface UserDAO extends IService<UserDO> {
-
+public interface OrderDAO extends IService<OrderDO> {
 }

@@ -1,3 +1,6 @@
+server:
+  port: 7001
+
 spring:
   profiles:
     active: dev
@@ -7,5 +10,9 @@ spring:
     nacos:
       # 配置中心
       config:
+        shared-configs:
+          - data-id: demo-alibaba-common-${spring.profiles.active}.yaml
+            group: DEFAULT_GROUP
+            refresh: true
         server-addr: 127.0.0.1:8848
         file-extension: yaml

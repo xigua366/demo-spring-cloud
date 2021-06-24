@@ -1,5 +1,7 @@
 package com.yx.demo.alibaba.feign.fallback;
 
+import com.yx.demo.alibaba.domain.dto.VideoDTO;
+import com.yx.demo.alibaba.domain.request.UpdatePointRequest;
 import com.yx.demo.alibaba.feign.VideoFeignClient;
 import org.springframework.stereotype.Service;
 
@@ -10,16 +12,16 @@ import org.springframework.stereotype.Service;
 public class VideoFeignClientFallback implements VideoFeignClient {
 
     @Override
-    public Video findById(int videoId) {
+    public VideoDTO findById(Long videoId) {
 
-        Video video = new Video();
+        VideoDTO video = new VideoDTO();
         video.setTitle("这个是Fallback里面的视频");
 
         return video;
     }
 
     @Override
-    public int save(Video video) {
-        return 0;
+    public boolean updatePoint(UpdatePointRequest videoRequest) {
+        return false;
     }
 }

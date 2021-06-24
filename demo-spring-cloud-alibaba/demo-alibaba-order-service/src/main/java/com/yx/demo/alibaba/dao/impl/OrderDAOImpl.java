@@ -1,9 +1,9 @@
 package com.yx.demo.alibaba.dao.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.yx.demo.alibaba.dao.UserDAO;
-import com.yx.demo.alibaba.domain.entity.UserDO;
-import com.yx.demo.alibaba.mapper.UserMapper;
+import com.yx.demo.alibaba.dao.OrderDAO;
+import com.yx.demo.alibaba.domain.entity.OrderDO;
+import com.yx.demo.alibaba.mapper.OrderMapper;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,7 +15,8 @@ import org.springframework.stereotype.Repository;
  * @version 1.0
  */
 @Repository
-public class UserDAOImpl extends ServiceImpl<UserMapper, UserDO> implements UserDAO {
+public class OrderDAOImpl extends ServiceImpl<OrderMapper, OrderDO> implements OrderDAO {
+
 
 
 }
