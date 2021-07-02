@@ -1,0 +1,11 @@
+server:
+  port: 8099
+
+greeting-service:
+  ribbon:
+    listOfServers: http://localhost:8082
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients: greeting-service

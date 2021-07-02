@@ -1,0 +1,14 @@
+server:
+  port: 7001
+
+spring:
+  application:
+    name: demo-netflix-order-service
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

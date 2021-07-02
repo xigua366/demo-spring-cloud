@@ -1,0 +1,15 @@
+server:
+  port: 8099
+
+greeting-service:
+  ribbon:
+    listOfServers: http://localhost:8080
+
+
+feign:
+  client:
+    config:
+      default:
+        readTimeout: 1000
+      greeting-service:
+        readTimeout: 2000
