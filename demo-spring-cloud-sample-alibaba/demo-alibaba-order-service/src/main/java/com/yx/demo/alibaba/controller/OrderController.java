@@ -1,11 +1,18 @@
 package com.yx.demo.alibaba.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.alibaba.csp.sentinel.slots.block.authority.AuthorityRule;
+import com.alibaba.csp.sentinel.slots.block.authority.AuthorityRuleManager;
+import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
+import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import com.yx.demo.alibaba.domain.dto.OrderDTO;
 import com.yx.demo.alibaba.domain.dto.VideoDTO;
 import com.yx.demo.alibaba.domain.request.CreateOrderRequest;
 import com.yx.demo.alibaba.feign.VideoFeignClient;
 import com.yx.demo.alibaba.service.OrderService;
 import com.yx.demo.alibaba.utils.JsonData;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -16,11 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * @author yangxi
  */
+@Slf4j
 @RestController
 @RequestMapping("api/v1/video_order")
 @RefreshScope
@@ -98,8 +107,15 @@ public class OrderController {
 
     int temp = 0;
 
+    @SentinelResource(value = "OrderController:list", blockHandler = "list_blockHandler")
     @RequestMapping("list")
-    public Object list(HttpServletRequest request){
+    public Object list(HttpServletRequest request) {
+
+        List<AuthorityRule> authorityRules = AuthorityRuleManager.getRules();
+        System.out.println(authorityRules);
+
+        List<FlowRule> flowRules = FlowRuleManager.getRules();
+        System.out.println(flowRules);
 
 //
 //        try {
@@ -120,6 +136,11 @@ public class OrderController {
         map.put("port",request.getServerPort()+"");
 
         return map;
+    }
+
+    public Object list_blockHandler(HttpServletRequest request, BlockException blockException) {
+        log.error("接口被限流了", blockException);
+        return JsonData.buildError("接口被限流了....");
     }
 
 

@@ -11,8 +11,28 @@ spring:
         server-addr: 127.0.0.1:8848
     sentinel:
       transport:
-        dashboard: 127.0.0.1:8080
+        dashboard: 127.0.0.1:8190
         port: 9999
+      # 使用nacos做持久化
+      datasource:
+        # 微服务流控配置
+        flow:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            namespace: sentinel
+            group-id: SENTINEL_GROUP
+            data-id: ${spring.application.name}-flow-rules.json
+            data-type: json
+            rule-type: flow
+        # 授权规则
+        authority:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            namespace: sentinel
+            group-id: SENTINEL_GROUP
+            data-id: ${spring.application.name}-authority-rules.json
+            data-type: json
+            rule-type: authority
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
